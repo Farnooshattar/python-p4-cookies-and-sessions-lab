@@ -33,7 +33,8 @@ def show_article(id):
     if request.method == 'GET':
         if 'page_views' not in session:
             session['page_views'] = 0
-        elif session['page_views'] <= 3:
+
+        if session['page_views'] <= 3:
             article = Article.query.get(id)  # Retrieve the article by ID
 
             if article:
